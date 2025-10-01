@@ -108,3 +108,10 @@ The architecture consists of 4 main layers:
      - custom messages.  
 
 ---
+
+## Interactive Dashboard
+
+Built interactive dashboard using Power BI for sales analytics and KPI monitoring.
+[Repository](https://github.com/yourusername/DWH_Car_Sales)
+
+---
