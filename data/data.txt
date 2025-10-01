@@ -1,2 +1,0 @@
-This project uses two source datasets (`CSV` files), representing offline and online car sales.  
-Since the original business data is private, the repository contains only sample data, generated for demonstration purposes.  
