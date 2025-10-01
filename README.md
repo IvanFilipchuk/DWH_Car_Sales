@@ -59,3 +59,52 @@ The architecture consists of 4 main layers:
      - `LOG_PROCEDURE` – procedure for centralized logging with error handling.  
 
 ---
+
+## BL_3NF Overview  
+- **Addresses**: hierarchical model of countries, states, cities, streets, and addresses.  
+- **Cars**: `CE_CAR_BRANDS → CE_CAR_MODELS → CE_CARS`.  
+- **Customers**: slowly changing dimension (`CE_CUSTOMERS_SDC`, SCD Type 2).  
+- **Sales**: `CE_SALES` – transactional fact table in normalized form.  
+
+---
+
+## BL_DM Overview  
+
+### Dimensions  
+- `DIM_DATES` – calendar with extended attributes (day of week, weekend, month name).  
+- `DIM_CARS` – flattened car hierarchy.  
+- `DIM_CUSTOMERS_SDC` – customers with full address and historical tracking.  
+- `DIM_DEALERS`, `DIM_EMPLOYEES`, `DIM_PAYMENT_METHODS`, `DIM_SALES_CHANNELS`.  
+
+### Fact Table  
+- **FCT_SALES** (partitioned by date):  
+  - Sales price, commission, discount, income.  
+  - Derived metrics:  
+    - `CALC_DISCOUNT_VALUE = SALE_PRICE * (REDUCTION_PERCENT / 100)`  
+    - `CALC_COMMISSION_CHECK = SALE_PRICE * COMMISSION_RATE`  
+
+---
+
+## ETL Process  
+
+1. **CSV → Staging**  
+   - Load raw data from online/offline sales CSVs.  
+
+2. **Staging → BL_3NF**  
+   - Data normalization and validation.  
+   - Deduplication, mapping to reference tables.  
+   - Priority handling (offline over online where overlaps occur).  
+
+3. **BL_3NF → BL_DM**  
+   - Denormalization and star schema creation.  
+   - Adding analytical attributes in dimensions.  
+   - Deriving additional metrics in fact tables.  
+
+4. **Logging & Monitoring (BL_CL)**  
+   - All ETL procedures log execution details:  
+     - procedure name,  
+     - number of rows processed,  
+     - status (success/error),  
+     - custom messages.  
+
+---
