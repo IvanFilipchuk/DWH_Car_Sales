@@ -42,16 +42,16 @@ The architecture consists of 4 main layers:
    - Includes key entities: `CE_CUSTOMERS_SDC`, `CE_SALES`, `CE_CARS`, `CE_DEALERS`, etc.  
 
 <p align="center">  
-  <img src="SCHEMAT_3NF.png" alt="Model 3NF" width="600"/>  
-</p>  
+  <img src="screenshots/3NF.png" alt="Model 3NF" width="600"/>  
+</p>
 
 4. **BL_DM (Business Layer – Data Mart)**  
    - Star schema for reporting and analytics.  
    - Dimensions (customers, cars, employees, dealers, dates, etc.) and fact table (`FCT_SALES`).  
 
 <p align="center">  
-  <img src="SCHEMAT_DM.png" alt="Model DM" width="600"/>  
-</p>  
+  <img src="screenshots/DM.png" alt="Model 3NF" width="600"/>  
+</p> 
 
 5. **BL_CL (Control Layer)**  
    - Logging schema with:  
