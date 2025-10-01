@@ -109,9 +109,16 @@ The architecture consists of 4 main layers:
 
 ---
 
-## Interactive Dashboard
+## Interactive Dashboard & Analytics
 
-Built interactive dashboard using Power BI for sales analytics and KPI monitoring.
-[Repository](https://github.com/yourusername/DWH_Car_Sales)
+Built an interactive **Power BI dashboard** for end-to-end car sales analytics and KPI monitoring — powered by data from the DWH.
+
+[View Repository](https://github.com/IvanFilipchuk/Car_Sales_Dashboard)
+
+### Dashboard Preview
+
+<p align="center">  
+  <img src="screenshots/dashboard.png" alt="Model 3NF" width="600"/>  
+</p> 
 
 ---
